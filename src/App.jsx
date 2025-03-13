@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import { Box } from '@mui/material';
 
 // Criando um tema personalizado
 const theme = createTheme({
@@ -26,13 +27,18 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Navbar />
+        {/* Força a navbar aparecer */}
+        <Box sx={{ display: 'block', width: '100%' }}>
+          <Navbar />
+        </Box>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+
         <Footer />
       </Router>
     </ThemeProvider>

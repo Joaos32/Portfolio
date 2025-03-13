@@ -1,6 +1,6 @@
 import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Box } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -13,12 +13,17 @@ const navLinks = [
 
 function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
-  const handleOpen = (event) => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
   const location = useLocation();
 
+  const handleOpen = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+
+  useEffect(() => {
+    console.log('Navbar carregado'); // Verifica se o componente está montando corretamente
+  }, []);
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#1e1e1e' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#1e1e1e', zIndex: 10 }}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Meu Portfólio
