@@ -1,10 +1,20 @@
-import { Container, Typography, Box, Button } from '@mui/material';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Container, Typography, Box, Button } from "@mui/material";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <Container sx={{ textAlign: 'center', mt: 8 }}>
+    <Container
+      sx={{
+        textAlign: "center",
+        mt: 8,
+        minHeight: "100vh", // Garante que o container ocupe toda a tela
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center", // Centraliza verticalmente
+        alignItems: "center", // Centraliza horizontalmente
+      }}
+    >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,7 +33,13 @@ function Home() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.3 }}
       >
-        <Button variant="contained" color="primary" size="large" component={Link} to="/projects">
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          component={Link}
+          to="/projects"
+        >
           Ver Meus Projetos
         </Button>
       </motion.div>
