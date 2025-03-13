@@ -1,34 +1,32 @@
-import { Container, Typography, Button, Box } from '@mui/material';
+import { Container, Typography, Box, Button } from '@mui/material';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <Container>
-      <Box 
-        component={motion.div} 
-        initial={{ opacity: 0, y: -50 }} 
-        animate={{ opacity: 1, y: 0 }} 
+    <Container sx={{ textAlign: 'center', mt: 8 }}>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        textAlign="center"
-        mt={5}
       >
-        <Typography variant="h3" color="primary">
-          Olá, eu sou João! 🚀
+        <Typography variant="h3" color="primary" gutterBottom>
+          Olá, eu sou João! 👋
         </Typography>
-        <Typography variant="h5" mt={2}>
-          Desenvolvedor apaixonado por tecnologia e inovação.
+        <Typography variant="h5" color="textSecondary" paragraph>
+          Desenvolvedor apaixonado por tecnologia e inovação. 🚀
         </Typography>
-        <Button 
-          component={motion.a} 
-          href="/projects" 
-          variant="contained" 
-          color="primary" 
-          sx={{ mt: 3 }}
-          whileHover={{ scale: 1.1 }}
-        >
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+      >
+        <Button variant="contained" color="primary" size="large" component={Link} to="/projects">
           Ver Meus Projetos
         </Button>
-      </Box>
+      </motion.div>
     </Container>
   );
 }

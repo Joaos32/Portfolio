@@ -1,34 +1,59 @@
-// src/components/Navbar.jsx
 import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Box } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const navLinks = [
+  { label: 'Home', path: '/' },
+  { label: 'Sobre', path: '/about' },
+  { label: 'Projetos', path: '/projects' },
+  { label: 'Contato', path: '/contact' }
+];
 
 function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const handleOpen = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+  const location = useLocation();
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#1e1e1e' }}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Meu Portfólio
         </Typography>
-        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-          <Link to="/" style={{ textDecoration: 'none', color: 'white', margin: '0 10px' }}>Home</Link>
-          <Link to="/about" style={{ textDecoration: 'none', color: 'white', margin: '0 10px' }}>Sobre</Link>
-          <Link to="/projects" style={{ textDecoration: 'none', color: 'white', margin: '0 10px' }}>Projetos</Link>
-          <Link to="/contact" style={{ textDecoration: 'none', color: 'white', margin: '0 10px' }}>Contato</Link>
+
+        {/* Links Desktop */}
+        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          {navLinks.map(({ label, path }, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.1 }}
+              style={{
+                margin: '0 10px',
+                borderBottom: location.pathname === path ? '2px solid #90caf9' : 'none'
+              }}
+            >
+              <Link to={path} style={{ textDecoration: 'none', color: 'white' }}>
+                {label}
+              </Link>
+            </motion.div>
+          ))}
         </Box>
+
+        {/* Ícone do Menu Mobile */}
         <IconButton color="inherit" sx={{ display: { xs: 'block', md: 'none' } }} onClick={handleOpen}>
           <MenuIcon />
         </IconButton>
+
+        {/* Menu Mobile */}
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-          <MenuItem onClick={handleClose} component={Link} to="/">Home</MenuItem>
-          <MenuItem onClick={handleClose} component={Link} to="/about">Sobre</MenuItem>
-          <MenuItem onClick={handleClose} component={Link} to="/projects">Projetos</MenuItem>
-          <MenuItem onClick={handleClose} component={Link} to="/contact">Contato</MenuItem>
+          {navLinks.map(({ label, path }, index) => (
+            <MenuItem key={index} onClick={handleClose} component={Link} to={path}>
+              {label}
+            </MenuItem>
+          ))}
         </Menu>
       </Toolbar>
     </AppBar>
