@@ -1,5 +1,5 @@
 import { Container, Typography, Box, Avatar, Divider } from "@mui/material";
-import { motion } from "framer-motion";
+
 
 const About = () => {
   return (
@@ -39,10 +39,9 @@ const About = () => {
           💡 Habilidades e Tecnologias:
         </Typography>
         <Typography variant="body1" color="textSecondary">
-          ✅ React, React Native, FastAPI, PostgreSQL  
-          ✅ Material UI, Mantine, Framer Motion  
-          ✅ Desenvolvimento de APIs e integração de sistemas  
-          ✅ Projetos Full Stack modernos e eficientes  
+          ✅ React, React Native, FastAPI, PostgreSQL ✅ Material UI, Mantine,
+          Framer Motion ✅ Desenvolvimento de APIs e integração de sistemas ✅
+          Projetos Full Stack modernos e eficientes
         </Typography>
       </motion.div>
     </Container>

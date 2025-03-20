@@ -1,17 +1,20 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
-import { createContext, useState, useMemo } from 'react';
-
-export const ThemeContext = createContext();
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+import { useState, useMemo } from "react";
+import { ThemeContext } from "./ThemeContext"; // Importando o contexto
 
 export function ThemeProviderComponent({ children }) {
   const [darkMode, setDarkMode] = useState(false);
 
-  const theme = useMemo(() => createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-    },
-  }), [darkMode]);
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: darkMode ? "dark" : "light",
+        },
+      }),
+    [darkMode]
+  );
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
