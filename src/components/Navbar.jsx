@@ -18,8 +18,9 @@ function Navbar() {
   const handleOpen = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
+  // 🔹 Teste se a Navbar está sendo carregada
   useEffect(() => {
-    console.log('Navbar carregado'); // Verifica se o componente está montando corretamente
+    console.log('Navbar foi carregada!');
   }, []);
 
   return (
