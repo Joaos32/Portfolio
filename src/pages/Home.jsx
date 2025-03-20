@@ -2,17 +2,17 @@ import { Container, Typography, Box, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-function Home() {
+const Home = () => {
   return (
     <Container
       sx={{
         textAlign: "center",
-        mt: 8,
-        minHeight: "100vh", // Garante que o container ocupe toda a tela
+        minHeight: "100vh", // Garante que o container ocupe a tela toda
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center", // Centraliza verticalmente
-        alignItems: "center", // Centraliza horizontalmente
+        justifyContent: "center",
+        alignItems: "center",
+        p: 3,
       }}
     >
       <motion.div
@@ -39,12 +39,13 @@ function Home() {
           size="large"
           component={Link}
           to="/projects"
+          sx={{ mt: 2 }}
         >
           Ver Meus Projetos
         </Button>
       </motion.div>
     </Container>
   );
-}
+};
 
 export default Home;

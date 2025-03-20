@@ -18,15 +18,14 @@ function Navbar() {
   const handleOpen = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
-  // 🔹 Teste se a Navbar está sendo carregada
   useEffect(() => {
     console.log('Navbar foi carregada!');
   }, []);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#1e1e1e', zIndex: 10 }}>
+    <AppBar position="static" sx={{ backgroundColor: '#121212', zIndex: 10 }}>
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
           Meu Portfólio
         </Typography>
 
@@ -36,12 +35,13 @@ function Navbar() {
             <motion.div
               key={index}
               whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
               style={{
-                margin: '0 10px',
-                borderBottom: location.pathname === path ? '2px solid #90caf9' : 'none'
+                margin: '0 15px',
+                borderBottom: location.pathname === path ? '3px solid #90caf9' : 'none'
               }}
             >
-              <Link to={path} style={{ textDecoration: 'none', color: 'white' }}>
+              <Link to={path} style={{ textDecoration: 'none', color: 'white', fontSize: '1rem' }}>
                 {label}
               </Link>
             </motion.div>
@@ -49,7 +49,12 @@ function Navbar() {
         </Box>
 
         {/* Ícone do Menu Mobile */}
-        <IconButton color="inherit" sx={{ display: { xs: 'block', md: 'none' } }} onClick={handleOpen}>
+        <IconButton 
+          color="inherit" 
+          sx={{ display: { xs: 'block', md: 'none' } }} 
+          onClick={handleOpen}
+          aria-label="Abrir menu de navegação"
+        >
           <MenuIcon />
         </IconButton>
 

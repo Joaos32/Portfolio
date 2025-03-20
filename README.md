@@ -56,4 +56,8 @@ O portfólio está hospedado em: [**Seu Link Aqui**](#)
 - **GitHub:** [github.com/Joaos32]
 
 ---
+<<<<<<< HEAD
 💡 *Este portfólio está em constante evolução! Sugestões são bem-vindas.*
+=======
+💡 *Este portfólio está em constante evolução! Sugestões são bem-vindas.*
+>>>>>>> 20412e8 (Melhorias no design da seção de projetos)

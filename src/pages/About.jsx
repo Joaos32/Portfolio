@@ -1,9 +1,10 @@
-import { Container, Typography, Box, Avatar, Divider } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Container, Typography, Box, Avatar, Divider } from "@mui/material";
+import { motion } from "framer-motion";
 
-function About() {
+const About = () => {
   return (
-    <Container sx={{ mt: 8, textAlign: 'center' }}>
+    <Container sx={{ mt: 8, textAlign: "center", minHeight: "100vh", p: 3 }}>
+      {/* Seção do Avatar e Introdução */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -12,20 +13,23 @@ function About() {
         <Avatar
           src="https://via.placeholder.com/150"
           alt="João"
-          sx={{ width: 120, height: 120, margin: 'auto', mb: 2 }}
+          sx={{ width: 120, height: 120, margin: "auto", mb: 2 }}
         />
         <Typography variant="h4" color="primary" gutterBottom>
           Sobre Mim
         </Typography>
         <Typography variant="body1" color="textSecondary" paragraph>
-          Olá! Meu nome é João e sou um desenvolvedor apaixonado por tecnologia e inovação.
-          Tenho experiência em **React, FastAPI, PostgreSQL e desenvolvimento de APIs**.
-          Meu objetivo é criar soluções eficientes e impactantes que resolvam problemas reais.
+          Olá! Meu nome é João e sou um desenvolvedor apaixonado por tecnologia
+          e inovação. Tenho experiência em{" "}
+          <strong>React, FastAPI, PostgreSQL e desenvolvimento de APIs</strong>.
+          Meu objetivo é criar soluções eficientes e impactantes que resolvam
+          problemas reais.
         </Typography>
       </motion.div>
 
       <Divider sx={{ my: 4 }} />
 
+      {/* Seção de Habilidades */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -43,6 +47,6 @@ function About() {
       </motion.div>
     </Container>
   );
-}
+};
 
 export default About;

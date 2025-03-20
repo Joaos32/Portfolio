@@ -28,9 +28,9 @@ function Projects() {
       <Typography variant="h3" color="primary" textAlign="center" sx={{ fontWeight: "bold", mb: 3 }}>
         Meus Projetos
       </Typography>
-      <Grid container spacing={3} justifyContent="center">
+      <Grid container spacing={3} justifyContent="center" alignItems="stretch">
         {projects.map((project, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
+          <Grid item xs={12} sm={6} md={4} key={index} display="flex" justifyContent="center">
             <ProjectCard {...project} />
           </Grid>
         ))}
