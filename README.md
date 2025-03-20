@@ -1,12 +1,59 @@
-# React + Vite
+# 📌 Meu Portfólio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o meu portfólio desenvolvido em React, onde apresento meus projetos, habilidades e informações de contato.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
+- React.js
+- Mantine (UI Framework)
+- React Router
+- Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎨 Funcionalidades
+- Apresentação pessoal
+- Exibição de projetos com links para repositórios
+- Seção de habilidades
+- Formulário de contato
+- Modo escuro/claro
 
-## Expanding the ESLint configuration
+## 📂 Estrutura do Projeto
+```
+Portfolio/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   ├── App.jsx
+│   ├── main.jsx
+├── public/
+├── package.json
+├── README.md
+```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Como Rodar o Projeto
+1. Clone este repositório:
+   ```sh
+   git clone https://github.com/Joaos32/Portfolio.git
+   ```
+2. Acesse a pasta do projeto:
+   ```sh
+   cd Portfolio
+   ```
+3. Instale as dependências:
+   ```sh
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```sh
+   npm run dev
+   ```
+
+## 🌍 Deploy
+O portfólio está hospedado em: [**Seu Link Aqui**](#)
+
+## 📞 Contato
+- **Email:** joaovitor3255silva@gmail.com.com
+- **LinkedIn:** [https://www.linkedin.com/in/joao-vitor-silva-santos/]
+- **GitHub:** [github.com/Joaos32]
+
+---
+💡 *Este portfólio está em constante evolução! Sugestões são bem-vindas.*
