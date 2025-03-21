@@ -12,8 +12,6 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
-
-
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "Sobre", path: "/about" },
@@ -29,7 +27,7 @@ function Navbar() {
   const handleClose = () => setAnchorEl(null);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#121212", zIndex: 10 }}>
+    <AppBar position="fixed" sx={{ width: "100%", backgroundColor: "#121212", zIndex: 10 }}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: "bold" }}>
           Meu Portfólio
