@@ -6,7 +6,7 @@ import {
   CardActions,
   Button,
 } from "@mui/material";
-
+import { motion } from "framer-motion";
 
 function ProjectCard({ title, description, image, link }) {
   return (

@@ -1,5 +1,5 @@
 import { Container, Typography, Box, Avatar, Divider } from "@mui/material";
-
+import { motion } from "framer-motion";
 
 const About = () => {
   return (

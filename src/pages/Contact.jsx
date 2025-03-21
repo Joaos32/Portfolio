@@ -7,6 +7,7 @@ import {
   Link,
 } from "@mui/material";
 import { GitHub, LinkedIn, Email } from "@mui/icons-material";
+import { motion } from "framer-motion";
 
 function Contact() {
   return (

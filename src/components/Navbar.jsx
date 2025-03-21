@@ -10,6 +10,8 @@ import {
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+
 
 
 const navLinks = [
