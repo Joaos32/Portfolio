@@ -53,7 +53,7 @@ O portfólio está hospedado em: [**Seu Link Aqui**](#)
 ## 📞 Contato
 - **Email:** joaovitor3255silva@gmail.com.com
 - **LinkedIn:** [https://www.linkedin.com/in/joao-vitor-silva-santos/]
-- **GitHub:** [github.com/Joaos32]
+- **GitHub:** [github.com/Joaos32](https://github.com/Joaos32/Portfolio)
 
 ---
 <<<<<<< HEAD
