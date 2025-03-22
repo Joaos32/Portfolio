@@ -1,51 +1,28 @@
-import { Container, Typography, Box, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import React from "react";
 import { motion } from "framer-motion";
+import MatrixRain from "../components/MatrixRain";
 
 const Home = () => {
   return (
-    <Container
-      sx={{
-        textAlign: "center",
-        minHeight: "100vh", 
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        p: 3,
-      }}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Typography variant="h3" color="primary" gutterBottom>
-          Olá, eu sou João! 👋
-        </Typography>
-        <Typography variant="h5" color="textSecondary" paragraph>
-          Desenvolvedor apaixonado por tecnologia e inovação. 🚀
-        </Typography>
-      </motion.div>
+    <div className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
+      <MatrixRain />
 
+      {/* Texto principal centralizado na tela */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        className="relative z-10 bg-black/80 p-6 rounded-lg shadow-lg text-center"
+        initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
+        transition={{ duration: 1 }}
       >
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          component={Link}
-          to="/projects"
-          sx={{ mt: 2 }}
-        >
-          Ver Meus Projetos
-        </Button>
+        <h1 className="text-white text-5xl md:text-7xl font-bold">
+          Olá, eu sou João!
+        </h1>
       </motion.div>
-    </Container>
+    </div>
   );
 };
 
 export default Home;
+
+
+//quero uma apresentação de programação onde apresente um codigo sendo digitado da esquerda para a direita com tipagem e continua, e no meio da tela fique minha apresentação com meu nome e com o butão dos meus projetos

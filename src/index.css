@@ -24,7 +24,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  display: block; 
+  display: block;
 }
 
 h1 {
@@ -73,4 +73,37 @@ html, body, #root {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* 🎥 Efeito Matrix (Chuva de Código) */
+.code-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* Não interfere com a interação do usuário */
+}
+
+.code-text {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  color: rgba(0, 255, 0, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: moveCode 5s linear infinite;
+}
+
+@keyframes moveCode {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100vh);
+  }
 }

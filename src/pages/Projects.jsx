@@ -4,21 +4,27 @@ import ProjectCard from "../components/ProjectCard";
 const projects = [
   {
     title: "ChefCasa",
-    description: "App para chefs",
+    description: "Aplicativo para contratar chefs de cozinha em casa.",
+    technologies: ["React Native", "FastAPI", "PostgreSQL"],
+    progress: 35, 
     image:
       "https://thumbs.dreamstime.com/z/ícone-do-chapéu-de-chef-isolado-em-fundo-branco-da-coleção-cozinha-moda-e-símbolo-moderno-para-o-logotipo-web-app-ui-sinal-205127805.jpg",
     link: "https://github.com/Joaos32/ChefCasa",
   },
   {
     title: "Amigo Secreto",
-    description: "Sorteios interativos",
+    description: "Plataforma interativa para sorteios de amigo secreto.",
+    technologies: ["React", "Mantine UI", "IndexDB"],
+    progress: 40, 
     image:
       "https://secretsantaonline.com/assets/frontend/img/blog/ef360f61fd5807de916b59b5a9a789f4.jpg",
     link: "https://github.com/Joaos32/amigo-secreto",
   },
   {
     title: "Projetos Python",
-    description: "Projetos Básico de Python",
+    description: "Coleção de projetos básicos para aprendizado de Python.",
+    technologies: ["Python", "Flask", "SQLite"],
+    progress: 100, 
     image:
       "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?resize=800%2C800&ssl=1",
     link: "https://github.com/Joaos32/Projetos-Python",
@@ -47,16 +53,7 @@ function Projects() {
             display="flex"
             justifyContent="center"
           >
-            <ProjectCard
-              {...project}
-              sx={{
-                "& img": {
-                  objectFit: "cover",
-                  width: "100%",
-                  height: "200px",
-                },
-              }}
-            />
+            <ProjectCard {...project} />
           </Grid>
         ))}
       </Grid>

@@ -5,11 +5,23 @@ import {
   Typography,
   CardActions,
   Button,
+  LinearProgress,
+  Box,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { GitHub } from "@mui/icons-material";
+import { useEffect, useState } from "react";
 
-function ProjectCard({ title, description, image, link }) {
+function ProjectCard({ title, description, image, link, progress }) {
+  const [animatedProgress, setAnimatedProgress] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimatedProgress(progress);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [progress]);
+
   return (
     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       <Card
@@ -52,6 +64,16 @@ function ProjectCard({ title, description, image, link }) {
           >
             {description}
           </Typography>
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="body2" color="text.secondary">
+              Progresso do Projeto: {animatedProgress}%
+            </Typography>
+            <LinearProgress
+              variant="determinate"
+              value={animatedProgress}
+              sx={{ height: 8, borderRadius: 5, mt: 1 }}
+            />
+          </Box>
         </CardContent>
         <CardActions sx={{ justifyContent: "center", pb: 2 }}>
           <Button
