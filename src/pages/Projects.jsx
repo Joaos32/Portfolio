@@ -47,7 +47,16 @@ function Projects() {
             display="flex"
             justifyContent="center"
           >
-            <ProjectCard {...project} />
+            <ProjectCard
+              {...project}
+              sx={{
+                "& img": {
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "200px",
+                },
+              }}
+            />
           </Grid>
         ))}
       </Grid>

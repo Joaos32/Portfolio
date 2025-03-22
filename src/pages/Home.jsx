@@ -7,7 +7,7 @@ const Home = () => {
     <Container
       sx={{
         textAlign: "center",
-        minHeight: "100vh", // Garante que o container ocupe a tela toda
+        minHeight: "100vh", 
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

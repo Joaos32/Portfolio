@@ -7,14 +7,14 @@ function Loader({ size = 80, color = "primary", fullScreen = false }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: fullScreen ? "100vh" : "auto", // Ajusta se for fullScreen
+        height: fullScreen ? "100vh" : "auto", 
         width: "100%",
       }}
     >
       <CircularProgress
         color={color}
         size={size}
-        aria-label="Carregando..." // Acessibilidade
+        aria-label="Carregando..." 
       />
     </Box>
   );

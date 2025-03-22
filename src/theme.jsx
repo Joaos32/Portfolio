@@ -2,13 +2,13 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    primary: { main: "#0A84FF" }, // Azul elétrico
-    secondary: { main: "#00D4FF" }, // Ciano Neon
+    primary: { main: "#0A84FF" }, 
+    secondary: { main: "#00D4FF" }, 
     background: {
-      default: "#121212", // Preto fosco
-      paper: "#1E1E2E", // Azul escuro profundo
+      default: "#121212", 
+      paper: "#1E1E2E", 
     },
-    text: { primary: "#E0E0E0", secondary: "#A0A0A0" }, // Cinza claro
+    text: { primary: "#E0E0E0", secondary: "#A0A0A0" }, 
   },
   typography: {
     fontFamily: "Poppins, sans-serif",
@@ -18,8 +18,8 @@ const theme = createTheme({
     body1: { fontSize: "1rem", fontWeight: 400 },
     button: { fontFamily: "Poppins, sans-serif", fontWeight: 600 },
   },
-  spacing: 8, // Define espaçamentos em múltiplos de 8px
-  shape: { borderRadius: 12 }, // Borda mais arredondada
+  spacing: 8, 
+  shape: { borderRadius: 12 }, 
 });
 
 export default theme;

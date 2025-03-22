@@ -7,6 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { GitHub } from "@mui/icons-material";
 
 function ProjectCard({ title, description, image, link }) {
   return (
@@ -20,21 +21,24 @@ function ProjectCard({ title, description, image, link }) {
           justifyContent: "space-between",
           m: 2,
           transition: "0.3s",
-          "&:hover": { boxShadow: "0 8px 16px rgba(0,0,0,0.3)" },
+          background: "linear-gradient(135deg, #1e1e1e, #292929)",
+          color: "white",
+          "&:hover": { boxShadow: "0 8px 16px rgba(255,255,255,0.2)" },
         }}
       >
         <CardMedia
           component="img"
           height="180"
-          image={image}
+          image={image || "https://via.placeholder.com/345x180?text=Imagem+Indisponível"}
           alt={`Visual do projeto: ${title}`}
-          sx={{ objectFit: "cover" }} // Garante que a imagem se ajuste bem
+          sx={{ objectFit: "contain", backgroundColor: "#222" }}
+          onError={(e) => (e.target.src = "https://via.placeholder.com/345x180?text=Imagem+Indisponível")}
         />
         <CardContent
           sx={{ flexGrow: 1, overflow: "hidden", textOverflow: "ellipsis" }}
         >
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
+          <Typography gutterBottom variant="h5" component="div" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {title} <GitHub fontSize="small" />
           </Typography>
           <Typography
             variant="body2"
@@ -57,7 +61,12 @@ function ProjectCard({ title, description, image, link }) {
             target="_blank"
             variant="contained"
             aria-label={`Abrir projeto ${title}`}
-            disabled={!link} // Evita erro caso o link seja undefined
+            disabled={!link}
+            sx={{
+              transition: "0.3s",
+              "&:hover": { backgroundColor: "#1976d2", transform: "scale(1.1)" },
+            }}
+            startIcon={<GitHub />}
           >
             Ver Projeto
           </Button>

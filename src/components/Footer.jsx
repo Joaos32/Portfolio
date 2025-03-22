@@ -8,8 +8,8 @@ import {
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear(); // Evita recalcular a cada render
-  const theme = useTheme(); // Pega o tema para responsividade
+  const currentYear = new Date().getFullYear(); 
+  const theme = useTheme(); 
 
   return (
     <Box
