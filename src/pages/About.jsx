@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Typography, Box, Avatar, Divider, LinearProgress } from "@mui/material";
 import { motion } from "framer-motion";
 import { FaReact, FaPython, FaNodeJs, FaDatabase } from "react-icons/fa";
+import avatar from "../assets/Desenvolvedor FullStack.jpg"; // Importando a imagem corretamente
 
 const skills = [
   { name: "React", icon: <FaReact size={30} color="#61DBFB" />, level: 90 },
@@ -37,7 +38,7 @@ const About = () => {
       {/* Seção do Avatar e Introdução */}
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <Avatar
-          src="/assets/avatar.png"
+          src={avatar} // Caminho da imagem corrigido
           alt="João Vitor"
           sx={{ width: 140, height: 140, margin: "auto", mb: 2, boxShadow: 3 }}
         />
@@ -45,9 +46,13 @@ const About = () => {
           Sobre Mim
         </Typography>
         <Typography variant="body1" color="textSecondary" paragraph sx={{ maxWidth: "600px", margin: "auto" }}>
-          Olá! Meu nome é <strong>João Vitor</strong>, sou um desenvolvedor apaixonado por tecnologia e inovação.
-          Minha jornada na programação começou com a curiosidade de entender como as coisas funcionam nos bastidores do mundo digital,
-          e desde então venho aprimorando minhas habilidades para construir soluções eficientes e impactantes.
+          💬 <strong>
+          Oi! Eu sou o João Vitor, um desenvolvedor apaixonado por tecnologia e inovação.  
+          Desde pequeno, sempre fui curioso para entender como as coisas funcionam por trás das telas,  
+          o que me levou a mergulhar no mundo da programação. Hoje, transformo essa curiosidade em código,  
+          criando soluções práticas e eficientes que fazem a diferença. Estou sempre buscando aprender e  
+          evoluir para entregar projetos cada vez melhores!
+          </strong>
         </Typography>
       </motion.div>
 
