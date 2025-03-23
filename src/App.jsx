@@ -5,6 +5,7 @@ import { Suspense, lazy } from "react";
 import theme from "./theme";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Presentation from "./components/Presentation";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -76,6 +77,7 @@ const App = () => {
               maxWidth: { xs: "100%", md: "lg" },
             }}
           >
+            <Presentation />
             <AnimatedRoutes />
           </Container>
           <Footer />

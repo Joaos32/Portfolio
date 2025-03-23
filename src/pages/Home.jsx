@@ -1,12 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import MatrixRain from "../components/MatrixRain";
 
 const Home = () => {
   return (
     <div className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
-      <MatrixRain />
-
       {/* Texto principal centralizado na tela */}
       <motion.div
         className="relative z-10 bg-black/80 p-6 rounded-lg shadow-lg text-center"
@@ -23,6 +20,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-//quero uma apresentação de programação onde apresente um codigo sendo digitado da esquerda para a direita com tipagem e continua, e no meio da tela fique minha apresentação com meu nome e com o butão dos meus projetos
