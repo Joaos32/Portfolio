@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Container, Grid, Typography } from "@mui/material";
 import ProjectCard from "../components/ProjectCard";
 
@@ -32,6 +33,10 @@ const projects = [
 ];
 
 function Projects() {
+  useEffect(() => {
+    document.title = "Meus Projetos | Portfólio de João Silva";
+  }, []);
+
   return (
     <Container sx={{ mt: 5, mb: 5 }}>
       <Typography

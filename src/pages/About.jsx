@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import { Container, Typography, Box, Avatar, Divider, LinearProgress } from "@mui/material";
 import { motion } from "framer-motion";
 import { FaReact, FaPython, FaNodeJs, FaDatabase } from "react-icons/fa";
-import { useEffect, useState } from "react";
 
 const skills = [
   { name: "React", icon: <FaReact size={30} color="#61DBFB" />, level: 90 },
@@ -14,20 +14,28 @@ const About = () => {
   const [progress, setProgress] = useState(skills.map(() => 0));
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setProgress(skills.map(skill => skill.level));
-    }, 500);
-    return () => clearTimeout(timer);
+    document.title = "Sobre Mim | Portfólio de João Silva";
+
+    // Animação das barras de progresso
+    const timeouts = skills.map((skill, index) =>
+      setTimeout(() => {
+        setProgress((prevProgress) => {
+          const newProgress = [...prevProgress];
+          newProgress[index] = skill.level;
+          return newProgress;
+        });
+      }, index * 300) // Pequeno atraso entre as barras
+    );
+
+    return () => {
+      timeouts.forEach(clearTimeout);
+    };
   }, []);
 
   return (
     <Container sx={{ mt: 8, textAlign: "center", minHeight: "100vh", p: 3 }}>
       {/* Seção do Avatar e Introdução */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <Avatar
           src="/assets/avatar.png"
           alt="João Vitor"
@@ -37,29 +45,16 @@ const About = () => {
           Sobre Mim
         </Typography>
         <Typography variant="body1" color="textSecondary" paragraph sx={{ maxWidth: "600px", margin: "auto" }}>
-          Olá! Meu nome é <strong>João Vitor</strong>, sou um desenvolvedor apaixonado por tecnologia e inovação. 
-          Minha jornada na programação começou com a curiosidade de entender como as coisas funcionam nos bastidores do mundo digital, 
+          Olá! Meu nome é <strong>João Vitor</strong>, sou um desenvolvedor apaixonado por tecnologia e inovação.
+          Minha jornada na programação começou com a curiosidade de entender como as coisas funcionam nos bastidores do mundo digital,
           e desde então venho aprimorando minhas habilidades para construir soluções eficientes e impactantes.
-        </Typography>
-        <Typography variant="body1" color="textSecondary" paragraph sx={{ maxWidth: "600px", margin: "auto" }}>
-          Tenho experiência sólida no desenvolvimento <strong>Full Stack</strong>, trabalhando com tecnologias como 
-          <strong> React, React Native, FastAPI, PostgreSQL</strong> e muitas outras. Meu foco é criar aplicações modernas, 
-          responsivas e bem estruturadas, garantindo sempre a melhor experiência para o usuário final.
-        </Typography>
-        <Typography variant="body1" color="textSecondary" paragraph sx={{ maxWidth: "600px", margin: "auto" }}>
-          Estou sempre em busca de novos desafios e aprendizados, acreditando que a tecnologia tem o poder de transformar 
-          o mundo e facilitar a vida das pessoas. Vamos inovar juntos? 🚀
         </Typography>
       </motion.div>
 
       <Divider sx={{ my: 4, width: "60%", margin: "auto" }} />
 
       {/* Seção de Habilidades */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-      >
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.3 }}>
         <Typography variant="h5" color="secondary" fontWeight="bold" gutterBottom>
           💡 Habilidades e Tecnologias:
         </Typography>
@@ -73,7 +68,7 @@ const About = () => {
               <LinearProgress
                 variant="determinate"
                 value={progress[index]}
-                sx={{ height: 8, borderRadius: 5, flexGrow: 1, mx: 2 }}
+                sx={{ height: 8, borderRadius: 5, flexGrow: 1, mx: 2, transition: "width 1s ease-in-out" }}
               />
               <Typography variant="body2" sx={{ fontWeight: "bold", color: "gray", minWidth: "40px" }}>
                 {progress[index]}%
