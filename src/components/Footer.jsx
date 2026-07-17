@@ -1,66 +1,34 @@
-import {
-  Box,
-  Container,
-  Typography,
-  IconButton,
-  useTheme,
-} from "@mui/material";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
+import { GitHub, LinkedIn, MailOutline } from "@mui/icons-material";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear(); 
-  const theme = useTheme(); 
+const socialLinks = [
+  { label: "LinkedIn de João Vitor", href: "https://www.linkedin.com/in/joao-vitor-silva-santos/", icon: <LinkedIn /> },
+  { label: "GitHub de João Vitor", href: "https://github.com/joaos32", icon: <GitHub /> },
+  { label: "Enviar e-mail para João Vitor", href: "mailto:joaovitorsilvasantos3255@gmail.com", icon: <MailOutline /> },
+];
 
+function Footer() {
   return (
-    <Box
-      component="footer"
-      sx={{
-        py: 3,
-        px: 2,
-        bgcolor: "primary.dark",
-        color: "white",
-        textAlign: "center",
-      }}
-    >
-      <Container>
-        <Typography variant="body2" sx={{ fontSize: "0.9rem" }}>
-          © {currentYear} João Vitor - Todos os direitos reservados.
-        </Typography>
-        <Box
-          mt={1}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: theme.spacing(2.5),
-          }}
-        >
-          <IconButton
-            href="https://www.linkedin.com/in/joao-vitor-silva-santos/"
-            target="_blank"
-            sx={{ color: "white" }}
-            aria-label="LinkedIn de João Vitor"
-          >
-            <FaLinkedin size={24} />
-          </IconButton>
-          <IconButton
-            href="https://github.com/joaos32"
-            target="_blank"
-            sx={{ color: "white" }}
-            aria-label="GitHub de João Vitor"
-          >
-            <FaGithub size={24} />
-          </IconButton>
-          <IconButton
-            href="mailto:joaovitor3255silva@gmail.com"
-            sx={{ color: "white" }}
-            aria-label="Enviar email para João Vitor"
-          >
-            <FaEnvelope size={24} />
-          </IconButton>
-        </Box>
+    <Box component="footer" sx={{ borderTop: "1px solid", borderColor: "divider", py: 3 }}>
+      <Container maxWidth="lg">
+        <Stack direction={{ xs: "column", sm: "row" }} alignItems="center" justifyContent="space-between" spacing={2}>
+          <Box>
+            <Typography fontWeight={700}>João Vitor</Typography>
+            <Typography variant="body2" color="text.secondary">
+              Desenvolvedor Full Stack · © {new Date().getFullYear()}
+            </Typography>
+          </Box>
+          <Stack direction="row" spacing={0.5}>
+            {socialLinks.map(({ label, href, icon }) => (
+              <IconButton key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" aria-label={label} color="inherit">
+                {icon}
+              </IconButton>
+            ))}
+          </Stack>
+        </Stack>
       </Container>
     </Box>
   );
-};
+}
 
 export default Footer;

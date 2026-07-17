@@ -1,27 +1,27 @@
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useMemo, useState } from "react";
+import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
-import { useState, useMemo } from "react";
-import { ThemeContext } from "./ThemeContext"; 
+import createAppTheme from "../theme";
+import { ThemeModeContext } from "./themeMode";
 
 export function ThemeProviderComponent({ children }) {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: darkMode ? "dark" : "light",
-        },
-      }),
+    () => createAppTheme(darkMode ? "dark" : "light"),
+    [darkMode]
+  );
+  const value = useMemo(
+    () => ({ darkMode, toggleTheme: () => setDarkMode((current) => !current) }),
     [darkMode]
   );
 
   return (
-    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+    <ThemeModeContext.Provider value={value}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </ThemeContext.Provider>
+    </ThemeModeContext.Provider>
   );
 }

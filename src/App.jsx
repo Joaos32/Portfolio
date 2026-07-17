@@ -1,7 +1,12 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import { ThemeProvider, CssBaseline, Box, Container, CircularProgress } from "@mui/material";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { Box, CircularProgress } from "@mui/material";
 import { Suspense, lazy } from "react";
-import theme from "./theme";
+import { ThemeProviderComponent } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -11,7 +16,14 @@ const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
 
 const Loader = () => (
-  <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "60vh",
+    }}
+  >
     <CircularProgress color="primary" aria-label="Carregando conteúdo" />
   </Box>
 );
@@ -32,11 +44,8 @@ const StaticRoutes = () => {
 };
 
 const App = () => {
-  console.log("O componente App foi renderizado!");
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ThemeProviderComponent>
       <Router>
         <Box
           sx={{
@@ -47,24 +56,20 @@ const App = () => {
           }}
         >
           <Navbar />
-          <Container
+          <Box
             component="main"
             sx={{
               flexGrow: 1,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              p: { xs: 2, md: 3 },
               width: "100%",
-              maxWidth: { xs: "100%", md: "lg" },
+              pt: { xs: 7, md: 8 },
             }}
           >
             <StaticRoutes />
-          </Container>
+          </Box>
           <Footer />
         </Box>
       </Router>
-    </ThemeProvider>
+    </ThemeProviderComponent>
   );
 };
 

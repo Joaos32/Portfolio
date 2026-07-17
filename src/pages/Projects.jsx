@@ -1,67 +1,110 @@
 import { useEffect } from "react";
-import { Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import ProjectCard from "../components/ProjectCard";
+import nitroluxSiteImage from "../assets/projects/nitrolux-site.jpg";
+import inventoryImage from "../assets/projects/estoque-ti.jpg";
+import chefCasaImage from "../assets/projects/chefcasa.jpg";
+import portfolioImage from "../assets/projects/portfolio-site.jpg";
 
 const projects = [
   {
+    id: "nitrolux-site",
+    title: "Site Nitrolux",
+    category: "Projeto profissional · Web",
+    description:
+      "Site institucional e catálogo digital da Nitrolux, criado para apresentar as linhas de iluminação, facilitar a descoberta de produtos e fortalecer a presença digital da marca.",
+    impact:
+      "Uma experiência responsiva que conecta conteúdo institucional, portfólio de produtos e canais de atendimento em uma navegação mais clara.",
+    technologies: ["Next.js", "React", "TypeScript"],
+    image: nitroluxSiteImage,
+    homepage: "https://www.nitrolux.com.br/",
+    link: "https://github.com/Joaos32/SiteNitrolux",
+  },
+  {
+    id: "estoque-ti",
+    title: "EstoqueTI",
+    category: "Sistema corporativo · Desktop + API",
+    description:
+      "Sistema para controlar o ciclo de vida de equipamentos de TI, com autenticação, movimentações de estoque, dashboard, auditoria e exportação de relatórios.",
+    impact:
+      "Centraliza ativos, responsáveis, localizações e históricos de movimentação, oferecendo rastreabilidade e apoio à gestão do ambiente corporativo.",
+    technologies: ["Java 17", "Spring Boot", "JavaFX", "PostgreSQL"],
+    image: inventoryImage,
+    link: "https://github.com/Joaos32/EstoqueJava",
+  },
+  {
+    id: "chefcasa",
     title: "ChefCasa",
-    description: "Aplicativo para contratar chefs de cozinha em casa.",
-    technologies: ["React Native", "FastAPI", "PostgreSQL"],
-    progress: 35, 
-    image:
-      "https://thumbs.dreamstime.com/z/ícone-do-chapéu-de-chef-isolado-em-fundo-branco-da-coleção-cozinha-moda-e-símbolo-moderno-para-o-logotipo-web-app-ui-sinal-205127805.jpg",
+    category: "Produto digital · Mobile + API",
+    description:
+      "Plataforma que conecta clientes a chefs para refeições personalizadas em casa, permitindo descobrir profissionais e agendar serviços pelo aplicativo.",
+    impact:
+      "O projeto combina uma experiência mobile de contratação com uma API responsável por usuários, serviços, agendamentos e autenticação segura.",
+    technologies: ["React Native", "FastAPI", "PostgreSQL", "JWT"],
+    image: chefCasaImage,
     link: "https://github.com/Joaos32/ChefCasa",
   },
   {
-    title: "Amigo Secreto",
-    description: "Plataforma interativa para sorteios de amigo secreto.",
-    technologies: ["React", "Mantine UI", "IndexDB"],
-    progress: 40, 
-    image:
-      "https://secretsantaonline.com/assets/frontend/img/blog/ef360f61fd5807de916b59b5a9a789f4.jpg",
-    link: "https://github.com/Joaos32/amigo-secreto",
-  },
-  {
-    title: "Projetos Python",
-    description: "Coleção de projetos básicos para aprendizado de Python.",
-    technologies: ["Python", "Flask", "SQLite"],
-    progress: 100, 
-    image:
-      "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?resize=800%2C800&ssl=1",
-    link: "https://github.com/Joaos32/Projetos-Python",
+    id: "portfolio",
+    title: "Portfólio Profissional",
+    category: "Projeto pessoal · Web",
+    description:
+      "Aplicação responsiva para apresentar minha trajetória, habilidades e projetos em uma experiência consistente nos temas claro e escuro.",
+    impact:
+      "Centraliza minha presença profissional, facilita o acesso aos trabalhos públicos e cria um canal direto para novas oportunidades e colaborações.",
+    technologies: ["React", "Vite", "Material UI", "JavaScript"],
+    image: portfolioImage,
+    homepage: "https://portfolio-joao-vitors-projects-bbed36cf.vercel.app",
+    link: "https://github.com/Joaos32/Portfolio",
   },
 ];
 
 function Projects() {
   useEffect(() => {
-    document.title = "Meus Projetos | Portfólio de João Silva";
+    document.title = "Projetos | Portfólio de João Vitor";
   }, []);
 
   return (
-    <Container sx={{ mt: 5, mb: 5 }}>
-      <Typography
-        variant="h3"
-        color="primary"
-        textAlign="center"
-        sx={{ fontWeight: "bold", mb: 3 }}
+    <Container maxWidth="lg" sx={{ py: { xs: 7, md: 10 } }}>
+      <Box
+        sx={{
+          maxWidth: 760,
+          mx: "auto",
+          textAlign: "center",
+          mb: { xs: 5, md: 7 },
+        }}
       >
-        Meus Projetos
-      </Typography>
-      <Grid container spacing={3} justifyContent="center" alignItems="stretch">
-        {projects.map((project, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            key={index}
-            display="flex"
-            justifyContent="center"
-          >
-            <ProjectCard {...project} />
-          </Grid>
+        <Typography
+          color="secondary.main"
+          fontWeight={600}
+          sx={{ letterSpacing: 1.5, textTransform: "uppercase", mb: 1 }}
+        >
+          Trabalho selecionado
+        </Typography>
+        <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
+          Projetos que transformam necessidades em soluções
+        </Typography>
+        <Typography
+          color="text.secondary"
+          sx={{ fontSize: "1.08rem", lineHeight: 1.8 }}
+        >
+          Uma seleção de produtos profissionais e sistemas que mostram minha
+          atuação em experiências web, aplicativos mobile, APIs e software
+          corporativo.
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
+          gap: 4,
+        }}
+      >
+        {projects.map((project) => (
+          <ProjectCard key={project.id} {...project} />
         ))}
-      </Grid>
+      </Box>
     </Container>
   );
 }

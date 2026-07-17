@@ -1,118 +1,118 @@
-import { useState, useEffect } from "react";
-import { Container, Typography, Button, Box } from "@mui/material";
-import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
-import { FaArrowRight } from "react-icons/fa";
+import { useEffect } from "react";
+import { Box, Button, Chip, Container, Stack, Typography } from "@mui/material";
+import { ArrowForward, MailOutline, PersonOutline } from "@mui/icons-material";
+import { motion, useReducedMotion } from "framer-motion";
+import { Link as RouterLink } from "react-router-dom";
 
-const Home = () => {
-  const [textVisible, setTextVisible] = useState(false);
+const highlights = ["Aplicações web", "APIs", "Soluções orientadas a dados"];
+
+function Home() {
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    document.title = "Início | Portfólio de João Vitor";
-
-    setTimeout(() => {
-      setTextVisible(true);
-    }, 1000);
+    document.title = "João Vitor | Desenvolvedor Full Stack";
   }, []);
 
   return (
-    <Container
-      maxWidth="lg"
+    <Box
       sx={{
+        position: "relative",
+        overflow: "hidden",
+        minHeight: { xs: "calc(100vh - 56px)", md: "calc(100vh - 64px)" },
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        minHeight: "100vh",
-        p: 3,
+        background:
+          "radial-gradient(circle at 75% 35%, rgba(53,214,237,0.12), transparent 30%), radial-gradient(circle at 20% 70%, rgba(77,163,255,0.14), transparent 32%)",
       }}
     >
-      {/* Título animado */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <Typography variant="h3" fontWeight="bold" color="primary" gutterBottom>
-          Olá, eu sou{" "}
-          <span style={{ color: "#61DBFB" }}>
-            <TypeAnimation
-              sequence={["João Vitor", 1500, "um Desenvolvedor!", 1500]}
-              wrapper="span"
-              repeat={Infinity}
-            />
-          </span>
-        </Typography>
-      </motion.div>
-
-      {/* Descrição com efeito de entrada */}
-      {textVisible && (
+      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <Typography variant="h6" color="textSecondary" sx={{ maxWidth: "600px" }}>
-            Desenvolvedor Full Stack apaixonado por tecnologia, inovação e código limpo. Vamos criar algo incrível juntos?
+          <Typography
+            component="p"
+            color="secondary.main"
+            fontWeight={600}
+            sx={{ letterSpacing: 2, textTransform: "uppercase", mb: 2 }}
+          >
+            Desenvolvedor Full Stack
           </Typography>
-        </motion.div>
-      )}
-
-      {/* Botões animados */}
-      <Box sx={{ mt: 4, display: "flex", gap: 2 }}>
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            href="/projects"
-            sx={{ px: 4, py: 1, fontWeight: "bold", display: "flex", alignItems: "center" }}
+          <Typography
+            component="h1"
+            variant="h1"
+            sx={{ maxWidth: 900, lineHeight: 1.08 }}
           >
-            Meus Projetos <FaArrowRight style={{ marginLeft: "8px" }} />
-          </Button>
-        </motion.div>
-
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Button
-            variant="outlined"
-            color="primary"
-            size="large"
-            href="/contact"
-            sx={{ px: 4, py: 1, fontWeight: "bold" }}
+            Transformo ideias em produtos digitais que geram valor real.
+          </Typography>
+          <Typography
+            color="text.secondary"
+            sx={{
+              maxWidth: 720,
+              mt: 3,
+              fontSize: { xs: "1.05rem", md: "1.25rem" },
+              lineHeight: 1.8,
+            }}
           >
-            Contato
-          </Button>
-        </motion.div>
-      </Box>
+            Sou João Vitor. Construo experiências web, APIs e soluções de
+            software com foco em qualidade, organização e evolução contínua.
+          </Typography>
 
-      {/* Efeito de fundo animado */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.2 }}
-        transition={{ duration: 2 }}
-        style={{
-          position: "absolute",
-          bottom: "10%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "300px",
-          height: "300px",
-          background: "radial-gradient(circle, rgba(97,219,251,0.3) 0%, rgba(0,0,0,0) 70%)",
-          borderRadius: "50%",
-          zIndex: -1,
-        }}
-      />
-    </Container>
+          <Stack
+            direction="row"
+            useFlexGap
+            flexWrap="wrap"
+            spacing={1}
+            sx={{ mt: 3 }}
+          >
+            {highlights.map((highlight) => (
+              <Chip
+                key={highlight}
+                label={highlight}
+                variant="outlined"
+                color="secondary"
+              />
+            ))}
+          </Stack>
+
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            sx={{ mt: 5, maxWidth: { xs: 420, sm: "none" } }}
+          >
+            <Button
+              component={RouterLink}
+              to="/projects"
+              variant="contained"
+              size="large"
+              endIcon={<ArrowForward />}
+            >
+              Ver projetos
+            </Button>
+            <Button
+              component={RouterLink}
+              to="/contact"
+              variant="outlined"
+              size="large"
+              startIcon={<MailOutline />}
+            >
+              Entrar em contato
+            </Button>
+            <Button
+              component={RouterLink}
+              to="/about"
+              variant="text"
+              size="large"
+              startIcon={<PersonOutline />}
+            >
+              Conhecer trajetória
+            </Button>
+          </Stack>
+        </motion.div>
+      </Container>
+    </Box>
   );
-};
+}
 
 export default Home;
