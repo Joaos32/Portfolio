@@ -3,7 +3,7 @@ import { Box, Container, Typography } from "@mui/material";
 import ProjectCard from "../components/ProjectCard";
 import nitroluxSiteImage from "../assets/projects/nitrolux-site.jpg";
 import inventoryImage from "../assets/projects/estoque-ti.jpg";
-import chefCasaImage from "../assets/projects/chefcasa.jpg";
+import nitroluxCatalogImage from "../assets/projects/nitrolux-cam.jpg";
 import portfolioImage from "../assets/projects/portfolio-site.jpg";
 
 const projects = [
@@ -33,16 +33,16 @@ const projects = [
     link: "https://github.com/Joaos32/EstoqueJava",
   },
   {
-    id: "chefcasa",
-    title: "ChefCasa",
-    category: "Produto digital · Mobile + API",
+    id: "catalogo-nitrolux",
+    title: "Catálogo Nitrolux",
+    category: "Plataforma comercial · Web + API",
     description:
-      "Plataforma que conecta clientes a chefs para refeições personalizadas em casa, permitindo descobrir profissionais e agendar serviços pelo aplicativo.",
+      "Plataforma full stack que centraliza produtos e imagens das marcas Nitrolux e Pienza em um catálogo comercial pesquisável, responsivo e exportável.",
     impact:
-      "O projeto combina uma experiência mobile de contratação com uma API responsável por usuários, serviços, agendamentos e autenticação segura.",
-    technologies: ["React Native", "FastAPI", "PostgreSQL", "JWT"],
-    image: chefCasaImage,
-    link: "https://github.com/Joaos32/ChefCasa",
+      "Consolida dados de diferentes fontes, organiza mídias de produtos e oferece busca, filtros, exportações e um painel administrativo para cargas do ERP e gestão de acessos.",
+    technologies: ["FastAPI", "React", "TypeScript", "AWS"],
+    image: nitroluxCatalogImage,
+    link: "https://github.com/Joaos32/Catalogo-Nitrolux",
   },
   {
     id: "portfolio",

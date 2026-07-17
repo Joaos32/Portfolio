@@ -53,7 +53,7 @@ O conteúdo atual destaca quatro projetos públicos:
 
 1. Site Nitrolux;
 2. EstoqueTI;
-3. ChefCasa;
+3. Catálogo Nitrolux;
 4. Portfólio Profissional.
 
 ## Funcionalidades
